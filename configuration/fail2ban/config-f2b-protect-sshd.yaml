@@ -1,6 +1,6 @@
 ---
 - name: Install fail2ban and configure sshd
-  hosts: "{{ my_hosts | d([]) }}"
+  hosts: group1,group2
   become: true
 
   tasks:

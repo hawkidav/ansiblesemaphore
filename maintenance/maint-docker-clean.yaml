@@ -1,6 +1,6 @@
 ---
 - name: Clean docker
-  hosts: "{{ my_hosts | d([]) }}"
+  hosts: group1,group2
 
   tasks:
     - name: Prune non-dangling images

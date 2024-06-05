@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: group1,group2
 
   become: true
   tasks:
