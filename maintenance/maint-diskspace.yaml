@@ -1,6 +1,6 @@
 ---
 - name: Check disk space
-  hosts: my_hosts
+  hosts: group1,group2
 
   tasks:
     - name: Check disk space available
