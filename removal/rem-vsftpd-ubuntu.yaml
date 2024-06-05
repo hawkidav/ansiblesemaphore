@@ -1,0 +1,19 @@
+---
+- name: Remove vsftpd
+  hosts: ftpserver
+  become: true
+
+  tasks:
+    - name: Remove packages
+      ansible.builtin.apt:
+        name:
+          - vsftpd
+        state: absent
+
+    - name: Remove directories
+      ansible.builtin.shell:
+        cmd: |
+          rm /var/ftp/pub/README
+          rmdir /var/ftp/pub
+          rmdir /var/ftp
+        executable: /bin/bash
