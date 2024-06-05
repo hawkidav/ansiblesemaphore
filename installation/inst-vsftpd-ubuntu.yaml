@@ -4,9 +4,16 @@
 
   tasks:
   - name: install vsftpd
-    apt: name=vsftpd
-  - name: enable vsftpd
-    service: name=vsftpd enabled=true
+    ansible.builtin.apt:
+        name:
+          - vsftpd
+          - ssl-cert
+        update_cache: true
+  - name: Start vsftpd
+      ansible.builtin.service:
+        name: vsftpd
+        state: started
+        enabled: true
   - name: create readme file
     copy:
       content: "free downloads for everybody"
