@@ -1,6 +1,6 @@
 ---
 - name: Reboot machine
-  hosts: group1,group2
+  hosts: ftpserver
   become: true
 
   tasks:
