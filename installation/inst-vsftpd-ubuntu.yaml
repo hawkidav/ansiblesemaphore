@@ -16,6 +16,11 @@
         name: vsftpd
         state: started
         enabled: true
+    - name: Create directories
+      ansible.builtin.shell:
+        cmd: |
+          mkdir -p /var/ftp/pub
+        executable: /bin/bash
     - name: create readme file
       copy:
         content: "free downloads for everybody"
