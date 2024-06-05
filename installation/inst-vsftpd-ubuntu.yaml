@@ -1,20 +1,22 @@
 ---
-- name deploy vsftpd
+- name: Install vsftpd
   hosts: ftpserver
+  become: true
 
   tasks:
-  - name: install vsftpd
-    ansible.builtin.apt:
+    - name: Install packages
+      ansible.builtin.apt:
         name:
           - vsftpd
           - ssl-cert
         update_cache: true
-  - name: Start vsftpd
+
+    - name: Start vsftpd 
       ansible.builtin.service:
         name: vsftpd
         state: started
         enabled: true
-  - name: create readme file
+    - name: create readme file
     copy:
       content: "free downloads for everybody"
       dest: /var/ftp/pub/README
