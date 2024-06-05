@@ -1,6 +1,6 @@
 ---
 - name: Install microk8s
-  hosts: "{{ my_hosts | d([]) }}"
+  hosts: group1,group2
   become: true
 
   tasks:

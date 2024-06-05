@@ -1,6 +1,6 @@
 ---
 - name: Install core packages
-  hosts: "{{ my_hosts | d([]) }}"
+  hosts: group1,group2
   become: true
 
   tasks:
